@@ -158,14 +158,12 @@ enabled=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
 
 
-copy the centsbase ISO  to /var/tmp
-then
+  ***copy the centsbase ISO  to /var/tmp
 mount -o loop /var/tmp/CentOS-7-x86_64-Everything.iso  /mnt
-
 cd /etc/yum.repos.d
 disable all repos
 make exam.repo
-copy is to /var/tmp
+copy iso to /var/tmp
 mount the iso file to /var/centos72
 
 yum repolist
