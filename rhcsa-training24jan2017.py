@@ -72,7 +72,6 @@ http://blog.fpmurphy.com/2016/10/fastest-way-to-gain-root-access-in-rhcsa7-exam.
 fpm@fpmurphy.com
 Finnbarr Murphy
 
-
 add below line "init=/bin/bash" at  end of kernel line "linux16 /vmlinuz-3.00.***  root=/dev/mapper/centos-root rord.lvm.lv=centos/root
 init=/bin/bash 
 
