@@ -112,10 +112,22 @@ systemctl isolate name.target
 systemctl rescue  or systemctl isolate rescue.target
 ==Changing to Emergency Mode
 systemctl emergency   or  systemctl isolate emergency.target
+    Emergency mode provides the most minimal environment possible and allows you to repair your system even in 
+ situations when the system is unable to enter rescue mode. In emergency mode, 
+ the system mounts the root file system only for reading, does not attempt to mount any 
+ other local file systems, does not activate network interfaces
+========================================
+CHAPTER 36. BASIC SYSTEM RECOVERY
+https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/installation_guide/ap-rescuemode
 
+30.5. VERIFYING THE INITIAL RAM DISK IMAGE
+https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/deployment_guide/sec-verifying_the_initial_ram_disk_image
+30.6. VERIFYING THE BOOT LOADER
+https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/deployment_guide/s1-kernel-boot-loader#s3-kernel-boot-loader-grub
 
-Emergency mode provides the most minimal environment possible and allows you to repair your system even in situations when the system is unable to enter rescue mode. In emergency mode, the system mounts the root file system only for reading, does not attempt to mount any other local file systems, does not activate network interfaces
-
+ 
+ 
+ 
 ----Jan 24 -2007----------------------
 Shell  Commands and utility
 
