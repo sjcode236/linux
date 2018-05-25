@@ -68,7 +68,7 @@ exit
 reboot
 
 Finnbarr Murphy's blog
-'this fastest way to gain root access
+`this fastest way to gain root access
 http://blog.fpmurphy.com/2016/10/fastest-way-to-gain-root-access-in-rhcsa7-exam.html
 fpm@fpmurphy.com
 Finnbarr Murphy
