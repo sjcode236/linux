@@ -6,7 +6,7 @@ vmstat  1
 1a)  Find CPU , MEM  usage by a  process
 ps   -p 8564   -o  %cpu,%mem,cmd
 
-Find out who is monopolizing or eating the CPUs
+\Find out who is monopolizing or eating the CPUs
   ps -eo pcpu,pmem,pid,user,args | sort -k 1 -r | head -10
 or
   ps -eo pcpu,pmem,pid,user,args | sort -r -k 1 | less
