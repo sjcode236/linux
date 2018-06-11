@@ -113,7 +113,7 @@ Mem:          15791       10619        4383          88         788        4746
 Swap:          4095        2917        1178
 
 \Topas  usage
-top -c /  top c     ==>  list the process with commands
+top -c /  top c     ==>  list the process with commands 
 iostat -x 10  100
 
 \lsof 
