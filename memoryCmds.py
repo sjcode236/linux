@@ -18,8 +18,8 @@ or
 or
   ps -eo pmem,pcpu,pid,user,args | sort -r -k 1 | less
 
-ps aux   |sort -r  -k 3|more      ----> sort on  cpu usage  colum 3
-ps aux   |sort -r   -k 4|more     ---->  sort on mem usage  colum 4
+ps aux   |sort -r  -k 3|more      ==> sort on  cpu usage  colum 3
+ps aux   |sort -r   -k 4|more     ->  sort on mem usage  colum 4
 
 ps aux | awk '{print $6/1024 "  "  $11}' | sort -n
 
@@ -62,8 +62,8 @@ Memory Device
         Part Number: Not Specified
 
 To find swap information
-cat /proc/swaps   >>  will show info on each swap partition.
-swapon -s       >>    shows swap partitions and info
+cat /proc/swaps   ==>  will show info on each swap partition.
+swapon -s       ==>   shows swap partitions and info
 swapon -a       >>    makes all swap partitions available as indicated in /etc/fstab.
 cat /proc/sys/vm/pagecache
 
@@ -117,6 +117,6 @@ top -c /  top c     ==>  list the process with commands
 iostat -x 10  100
 
 \lsof 
-lsof -p  25385      è  show all the files open by that process 
+lsof -p  25385      ==>  show all the files open by that process 
 lsof |grep grid
-lsof -i :1002   ---> show the port status of 1002
+lsof -i :1002   ==> show the port status of 1002
