@@ -1,4 +1,6 @@
 
+http://linux236.blogspot.com/2016/07/linux-memory-commands.html
+  
 \Linux memory commands
 free  -m
 vmstat  1
