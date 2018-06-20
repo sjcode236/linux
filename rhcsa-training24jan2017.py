@@ -669,13 +669,29 @@ yum history list 1..3
    
 
 
---kernels
+==kernel ======================================================================== 
 modeprobe -h
 modinfo dm_log
 
+/etc/sysctl.conf   ==> kernel parameters in this file take effect on every reboot.
+net.ipv4.tcp_window_scaling = 1
+net.ipv4.tcp_rmem = 4096 87380 16777216
+==To enable them immediately without a reboot, use:
+# sysctl -p /etc/sysctl.conf
+# sysctl -a  ==>To see all of the currently configured values
+==>To see the value of one particular item, use:
+# sysctl -q net.ipv4.tcp_window_scaling
+
+==>to set the value of one item without configuring it in sysctl.conf 
+# sysctl -w net.ipv4.tcp_window_scaling=1
+
+cat /proc/sys/net/ipv4/tcp_window_scaling
+cat /proc/sys/net/ipv4/tcp_rmem
+
+
 
 ghori book 213
-systemd targets
+===systemd targets  ================================================================
 
 
 httpd is apache web server
@@ -693,7 +709,7 @@ systemctl set-default multiuser.target
 systemctl isolate  multiuser.target
 
 
---system logging
+===system logging   ============================================
 rsyslog
 systemctl status rsyslog
 cd /etc
@@ -713,7 +729,7 @@ journelctl /usr/bin/dbus-deamon
 
 
 
---chapter8----ghori236,intenseBook200
+===chapter8--ghori236,intenseBook200 =======================
 user and groups
 /etc/passwd
 /etc/shadow
@@ -949,7 +965,7 @@ xfs_growfs
 xfs_info
 xfs_repair
 
-blkid
+blkid ===>  list the file systems  with uuid 
 df
 du -h
 du -hs
@@ -1007,7 +1023,8 @@ lvs |grep lvolext4
 df -h |grep mntext4
 
 Finnabar will write blog about how to make yum repo from the centeOS-ISO in hostsystem and without copying to client
-I found a site with a few simple review material http://www.tecmint.com/rhcsa-exam-reviewing-essential-commands-system-documentation/
+I found a site with a few simple review material 
+http://www.tecmint.com/rhcsa-exam-reviewing-essential-commands-system-documentation/
 
 pvcreate /dev/sdc1
 vgextend vg10 /dev/sdc1
@@ -1069,7 +1086,7 @@ dumpe2fs 1.42.9 (28-Dec-2013)
 fsck -b 24577 /dev/sdb1
 
 
-----
+=== NFS  ==========================
 install  nfs-utils
 yum -y isntall nfs-utils
 
@@ -1078,7 +1095,7 @@ vi /etc/fstab
 192.168.0.110:/nfsdemo  /nfsmnt  nfs   _netdev   0  0
 mount /nfsmnt
 
---swap---
+===swap ======================================
 free
 free -h
 
@@ -1089,7 +1106,7 @@ cat /proc/swaps
 swapof /dev/sdb2
 
 mkswap /dev/vg10/swaplv
-swapon -v /dev/vg10/swaplv
+swapon -v /dev/vg10/swaplv   or (swapon -av /dev/vg10/swaplv)
 swapoff  /dev/vg10/swaplv
 lvremove /dev/vg10/swaplv
 
@@ -1135,8 +1152,7 @@ getfacl -c dir3
 
 
 -----27 jan 2017 -----------
-chapter11
-firewall
+===Chapter11 firewall ========================================================
 Ghori book 348
 intense   250
 
