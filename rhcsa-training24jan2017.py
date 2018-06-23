@@ -132,15 +132,16 @@ https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/de
 *************** Jan 24 -2007  ----------------------------------------
 Shell  Commands and utility
 
-stty  -->  set the terminal settings
+stty  ==>  set the terminal settings
 stty -a
-stty sane  -->
+stty sane  ==>
 stty cols 80
 stty rows 40
 clear
 setfont -h
 ls /lib/kbd 
 ls /lib/kbd/consolefonts |less
+alias ll
 lspci
 lsusb
 
@@ -148,9 +149,10 @@ lsusb
 intense book 140 
 
 /etc/yum.conf  
-    ==This file is the key  cofiguration file, you can define yum repositories in it on sepereate sections, but better approach is to store repos in /etc/yum/repos.d
-linux  repo  stays on  /etc/yum.repos.d/
-lspci
+==This file is the key cofiguration file,you can define yum repositories in it on sepereate sections,
+    but better approach is to store repos in /etc/yum.repos.d
+ /etc/yum.repos.d/
+
 
 
 
@@ -174,10 +176,10 @@ enabled=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
 
 
-  ***copy the centsbase ISO  to /var/tmp
+ ****copy the centsbase ISO  to /var/tmp
 mount -o loop /var/tmp/CentOS-7-x86_64-Everything.iso  /mnt
 cd /etc/yum.repos.d
-disable all repos
+=disable all repos  by setting  enabled=0 
 make exam.repo
 copy iso to /var/tmp
 mount the iso file to /var/centos72
@@ -193,7 +195,54 @@ then put in examrepo file
 baseurl=ftp://192.168.1.1/var/dir32/
 
 parctise to make repo  in 3 mins
--------------------------------------
+*************************************
+
+`***How to fix duplicate packages in yum ******************************
+verify yum-utils  installed or install it 
+yum list installed  yum-utils*
+yum-complete-transaction
+==To show duplicate packages on the system:
+package-cleanup --dupes
+==To removed  duplicate packages (yum verify and erasing the duplicates)
+package-cleanup --cleandupes
+==update the system again with a standard yum update command. This should take care of any missing dependencies that may have been removed in the previous process
+yum update
+==to see if there’s any remaining trouble with the yum database
+package-cleanup --problems
+
+Loaded plugins: fastestmirror
+No Problems Found
+
+***ADDING, ENABLING, AND DISABLING A YUM REPOSITORY ********************
+===To add a .repo repository to your system and enable it, run the following command as root:
+yum install -y yum-utils  ==> yum-utils provide  yum-config-manager:
+yum-config-manager --add-repo repository_url
+# yum-config-manager --add-repo http://www.example.com/example.repo
+Loaded plugins: product-id, refresh-packagekit, subscription-manager
+adding repo from: http://www.example.com/example.repo
+grabbing file http://www.example.com/example.repo to /etc/yum.repos.d/example.repo
+example.repo                                             |  413 B     00:00
+repo saved to /etc/yum.repos.d/example.repo
+===To enable a particular repository or repositories
+yum-config-manager --enable repository…
+ yum-config-manager --enable example\*
+===specifying  optional  repository enable  when installing a package with yum.
+ yum install rubygems --enablerepo=rhel-6-server-optional-rpms
+===To disable a Yum repository
+yum-config-manager --disable repository…
+===another way to disable a repo is 
+vi /etc/yum.repos.d/redhat.repo  and set enabled=0   to  disable the repo 
+yum repolist enabled 
+
+***Using Subscription-Manager***************************
+===Subscription-Manager provides it's own utility to enable & disable repositories within the redhat.repo file:
+ subscription-manager repos --list
+ subscription-manager repos --enable=rhel-6-server-optional-rpms
+ subscription-manager repos --disable=rhel-6-server-optional-rpms
+===Disabling the Subscription-Manager Repository:-
+	The default redhat.repo repository can be disabled by editing the Subscription-Manager configuration and setting the manage_repos value to zero 
+# subscription-manager config --rhsm.manage_repos=0
+-----------------------------------------------------------------------------------------
 intense school 29
 ls -alZ
 ls -al exam.repo
