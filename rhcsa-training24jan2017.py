@@ -129,7 +129,7 @@ https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/de
  
  
  
-----Jan 24 -2007----------------------
+*************** Jan 24 -2007  ----------------------------------------
 Shell  Commands and utility
 
 stty  -->  set the terminal settings
@@ -144,11 +144,15 @@ ls /lib/kbd/consolefonts |less
 lspci
 lsusb
 
-intense book 142
-linux  repo  stays on  /etc/yum.repos.d
+**************  yum  -------------------------------------------------
+intense book 140 
+
+/etc/yum.conf  
+    ==This file is the key  cofiguration file, you can define yum repositories in it on sepereate sections, but better approach is to store repos in /etc/yum/repos.d
+linux  repo  stays on  /etc/yum.repos.d/
 lspci
 
-/etc/yum.conf
+
 
 df -ih
 df -h
