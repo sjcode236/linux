@@ -165,9 +165,25 @@ find / -type f -name "*.iso"
 vi CentOs-Base.repo
 set  enabled=0  to all stanzas to disable them
 
-yum repolist
+***creating dvd yum repository *******
+mount -o ro /dev/cdrom  /mnt
+vi  /etc/yum.repos.d/dvd.repo 
+[centos72-full-media]
+name=CentOS-$releasever - Media
+baseurl=file:///mnt
+gpgcheck=0
+enabled=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
 
-vi exam.repo
+#yum repolist
+***make repo from ISO file *******
+=copy the centosbase ISO  to /var/tmp
+= and mount the iso file to /var/centos72
+mount -o loop /var/tmp/CentOS-7-x86_64-Everything.iso  /var/centos72  
+cd /etc/yum.repos.d
+=disable all repos  by setting  enabled=0 
+make exam.repo
+vi /etc/yum.repos.d/exam.repo
 [centos72-full-media]
 name=CentOS-$releasever - Media
 baseurl=file:///var/centos72/
@@ -175,14 +191,8 @@ gpgcheck=0
 enabled=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
 
-
- ****copy the centsbase ISO  to /var/tmp
-mount -o loop /var/tmp/CentOS-7-x86_64-Everything.iso  /mnt
-cd /etc/yum.repos.d
-=disable all repos  by setting  enabled=0 
-make exam.repo
-copy iso to /var/tmp
-mount the iso file to /var/centos72
+yum repolist
+======================================
 
 yum repolist
 yum list
