@@ -219,11 +219,10 @@ package-cleanup --cleandupes
 yum update
 ==to see if there’s any remaining trouble with the yum database
 package-cleanup --problems
-
 Loaded plugins: fastestmirror
 No Problems Found
 
-***ADDING, ENABLING, AND DISABLING A YUM REPOSITORY ********************
+`***ADDING, ENABLING, AND DISABLING A YUM REPOSITORY ********************
 ===To add a .repo repository to your system and enable it, run the following command as root:
 yum install -y yum-utils  ==> yum-utils provide  yum-config-manager:
 yum-config-manager --add-repo repository_url
@@ -236,6 +235,8 @@ repo saved to /etc/yum.repos.d/example.repo
 ===To enable a particular repository or repositories
 yum-config-manager --enable repository…
  yum-config-manager --enable example\*
+===to disable and enable repos inline with yum command
+yum --disablerepo=* --enablerepo=rhel* repolist
 ===specifying  optional  repository enable  when installing a package with yum.
  yum install rubygems --enablerepo=rhel-6-server-optional-rpms
 ===To disable a Yum repository
