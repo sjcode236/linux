@@ -11,7 +11,7 @@ sar -u  1  4   ===>cpu usage %
 sar -r  1  4   ===>mem usage %
 top  >>   display  system summary info and a list of tasks currently being managed by the kernel
 
-`===linux CPU usage  checking commands 
+\===linux CPU usage  checking commands 
 
 1)  top
 1a) iostat
