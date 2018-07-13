@@ -67,3 +67,21 @@ sudo lsof -n -i :80 | grep LISTEN
 cat /etc/services | grep 834
 netstat -anp | grep 834
 =====================================================================
+###################################################################
+systemctl is-active application.service
+systemctl status application.service
+systemctl is-enabled application.service
+systemctl is-failed application.service
+
+systemctl list-unit-files  |grep enabled 
+systemctl list-units --all
+systemctl list-units --all --state=inactive
+systemctl list-units --type=service
+systemctl cat atd.service
+systemctl list-dependencies sshd.service
+systemctl show sshd.service
+systemctl show sshd.service -p Conflicts
+systemctl -a |grep opsware
+https://www.digitalocean.com/community/tutorials/how-to-use-systemctl-to-manage-systemd-services-and-units
+ls /usr/lib/systemd/system/taniumclient.service
+#################################################################################
