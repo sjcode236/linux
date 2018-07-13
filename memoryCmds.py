@@ -23,7 +23,7 @@ ps aux   |sort -r   -k 4|more     ->  sort on mem usage  colum 4
 
 ps aux | awk '{print $6/1024 "  "  $11}' | sort -n
 
-5  common commands
+6  common commands
 1)free -m
 free -t
 2)top
@@ -35,8 +35,9 @@ procs -----------memory---------- ---swap-- -----io---- --system-- -----cpu-----
  0  1 4903264 255048  36276 892204   58   45    78    61   60   33  3  1 96  0  0
  0  0 4903264 255040  36280 892204    0    0     0     1  248  402  1  1 99  0  0
  0  0 4903264 255040  36280 892204    0    0     0     0  309  442  1  1 99  0  0
-
-5)dmidecode -t 17 |more
+5)sar -u  1  4   ===>cpu usage %
+  sar -r  1  4   ===>mem usage %
+6)dmidecode -t 17 |more
 # dmidecode 2.12
 SMBIOS 2.4 present.
 
