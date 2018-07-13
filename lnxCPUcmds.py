@@ -27,18 +27,18 @@ mpstat -P ALL
 4) Find CPU , MEM  usage by a  process
 ps   -p 8564   -o  %cpu,%mem,cmd
 
-5)Find out who is monopolizing or eating the CPUs
+`5)Find out who is monopolizing or eating the CPUs
   ps -eo pcpu,pid,user,args | sort -k 1 -r | head -10
 or
   ps -eo pcpu,pid,user,args | sort -r -k 1 | less
 
-5a)Find out who is monopolizing or eating the Memory
+`5a)Find out who is monopolizing or eating the Memory
   ps -eo pmem,pid,user,args | sort -k 1 -r | head -10
 or
   ps -eo pmem,pid,user,args | sort -r -k 1 | less
 
-6) Sort  process  by  cpu and memory usage
- ps aux --sort=-pcpu |head -10
+`6) Sort  process  by  cpu and memory usage
+ps aux --sort=-pcpu |head -10
 ps aux --sort -pcpu   |head -10
 ps aux --sort -pmem |head -10
 ps aux   |sort -r  -k 3|more      ----> sort on  cpu usage  colum 3
@@ -79,28 +79,28 @@ http://www.binarytides.com/linux-cpu-information/
 http://www.thegeekstuff.com/2011/07/iostat-vmstat-mpstat-examples/?utm_source=feedburner
 
 
-Use pgrep to find an applications process ID:
+\Use pgrep to find an applications process ID:
 root@pcevoxf001o058:~# pgrep rabbitmq
 9852
- find the exact command used to start a process:
+ \find the exact command used to start a process:
 root@pcevoxf001o058:~# ps auxf | head -1 && ps auxf | grep 9852 | grep -v "color=auto"
 USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
 root      9852  0.0  0.0   4440   652 ?        S    Oct22   0:00 /bin/sh /usr/sbin/rabbitmq-server
 
-from the example above – take the rabbitmq process ID of 9852 and see its child processes using the pstree command:
+\from the example above – take the rabbitmq process ID of 9852 and see its child processes using the pstree command:
 root@pcevoxf001o058:~# pstree -p 9852
 rabbitmq-server(9852)───su(9868)───sh(9869)───beam.smp(9870)─┬─inet_gethost(10163)───inet_gethost(10164)
                                                              ├─{beam.smp}(9925)
                                                              ├─{beam.smp}(9926)
                                                              ├─{beam.smp}(9927)
-how to view all the VASd processes and their related memory and CPU activity.  
+\how to view all the VASd processes and their related memory and CPU activity.  
 root@pcevoxf001o058:~# ps auxf | head -1; ps uaxf | grep vasd | grep -v "color=auto"
 USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
 root      1409  0.0  0.0  53388  6828 ?        Ss   Oct22   0:14 /opt/quest/sbin/.vasd -D -p /var/opt/quest/vas/vasd/.vasd.pid
 daemon    1581  0.5  0.6 152444 105832 ?       S    Oct22  12:55  \_ /opt/quest/sbin/.vasd -D -p /var/opt/quest/vas/vasd/.vasd.pid
 daemon    1590  1.2  0.2  94024 47584 ?        S    Oct22  29:28      \_ /opt/quest/sbin/.vasd -D -p /var/opt/quest/vas/vasd/.vasd.pid
 
-Use pstree to see a clear “tree” breakdown of the processes:
+\Use pstree to see a clear “tree” breakdown of the processes:
 root@pcevoxf001o058:~# pstree -p | grep vas
 init(1)-+-.vasd(1409)---.vasd(1581)-+-.vasd(1590)
         |                           |-.vasd(1591)
