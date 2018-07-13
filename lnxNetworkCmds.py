@@ -60,7 +60,7 @@ lsof -i :80 | grep LISTEN
 grep port /etc/services
 # ps -eo pid,user,group,args,etime,lstart | grep '[1]616'
 
-netstat -nlp|grep 9000
+netstat -lpn|grep 9000
  lsof -i :25
 sudo lsof -n -i :80 | grep LISTEN
 
