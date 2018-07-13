@@ -1,7 +1,7 @@
 
 linux CPU usage checking commands
 
-`===To See CPU information
+\===To See CPU information
 cat /proc/cpuinfo
 procinfo     >>  procinfo is a small program that gathers some system information
 lsdev   
