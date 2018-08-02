@@ -244,6 +244,12 @@ yum-config-manager --disable repository…
 ===another way to disable a repo is 
 vi /etc/yum.repos.d/redhat.repo  and set enabled=0   to  disable the repo 
 yum repolist enabled 
+===command to patch or update  with yum 
+yum --disablerepo=* --enablerepo=rhel* update
+===command to use  to patch to exclude  dhcp
+yum update --exclude=dhclient --exclude=dhcp-libs --exclude=dhcp-common 
+===the downgrade command for dhclient 
+yum downgrade -y dhcp-common dhcp-libs dhclient
 
 ***Using Subscription-Manager***************************
 ===Subscription-Manager provides it's own utility to enable & disable repositories within the redhat.repo file:
