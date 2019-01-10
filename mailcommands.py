@@ -1,6 +1,11 @@
 
-===change the setting in /etc/postfix/main.cf 
 
+***/etc/postfix/main.cf******************* 
+relayhost = RELAYHOSTNAME.linuxweb.com  or  relayhost = [RELAYHOSTNAME.linuxweb.com]
+mydomain = linuxweb.com
+myhostname = hostname.linuxweb.com ( This is optional )
+
+===change the setting in /etc/postfix/main.cf 
 relayhost = RELAYHOSTNAME.linuxweb.com  or  relayhost = [RELAYHOSTNAME.linuxweb.com]
 mydomain = linuxweb.com
 inet_protocols = ipv4
