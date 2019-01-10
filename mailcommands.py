@@ -78,3 +78,9 @@ mailx -a /tmp/attach.txt  -s "test body & attachment " bob@linuxweb.com  < /tmp/
 ===Below mail will put  file content part of mail Body
 LOG_1=/tmp/attach.txt
 echo -e "testing  mail body  @ $(date) on server $(hostname) Log attached.$(cat $LOG_1) "|mailx -s "mail attach testing   @ $(date) on server $(hostname)" bob@linuxweb.com
+
+
+
+
+
+
