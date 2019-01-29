@@ -68,8 +68,8 @@ https://tecadmin.net/ways-to-send-email-from-linux-command-line/
 
 ===sendmail usage =============================
 echo "Subject: sendmail test" | sendmail -v my@email.com 
-echo "This is body" | sendmail  -v soby.joseph@wellsfargo.com 
-echo "This is body" | sendmail  -vv soby.joseph@wellsfargo.com 
+echo "This is body" | sendmail  -v  bob@linuxweb.com
+echo "This is body" | sendmail  -vv bob@linuxweb.com
 ===mail command usage ========================
 echo "testing " | mail -s "from `hostname`"  bob@linuxweb.com
 mail    -s "mail testing   @ $(date) on server $(hostname)"   bob@linuxweb.com  < /dev/null
@@ -83,6 +83,8 @@ mailx -a /tmp/attach.txt  -s "test body & attachment " bob@linuxweb.com  < /tmp/
 ===Below mail will put  file content part of mail Body
 LOG_1=/tmp/attach.txt
 echo -e "testing  mail body  @ $(date) on server $(hostname) Log attached.$(cat $LOG_1) "|mailx -s "mail attach testing   @ $(date) on server $(hostname)" bob@linuxweb.com
+echo -e " $(cat $LOG_1 ) "|mailx -s "mail attach testing"  bob@linuxweb.com
+
 
 
 
