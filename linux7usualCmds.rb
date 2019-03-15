@@ -4,7 +4,7 @@
 
 systemctl status network.service
 systemctl restart network.service
-
+********
 ======================================================================
 $0 => The name of the Bash script.
 $1 =>  $9 - The first 9 arguments to the Bash script. (As mentioned above.)
