@@ -4,11 +4,11 @@ rhcsa training
 http://blog.fpmurphy.com/
 
 www.certdepot.net/
-'===
+
 https://www.centos.org/download/
 Minimal ISO's are here if anyone needs:
 ftp://ftp.osuosl.org/pub/centos/7/isos/x86_64/
-
+'--------
 
 ls -alZ
 
@@ -69,7 +69,7 @@ exit
 reboot
 
 Finnbarr Murphy's blog
-`this fastest way to gain root access
+=========this fastest way to gain root access
 http://blog.fpmurphy.com/2016/10/fastest-way-to-gain-root-access-in-rhcsa7-exam.html
 fpm@fpmurphy.com
 Finnbarr Murphy
@@ -88,7 +88,7 @@ ls -lZ /etc/shadow  /etc/passwd
 ls -lZ /etc/shadow  /etc/passwd
 exec /sbin/init
 
-`practise to change root password  in 8  mins for exam
+"*******practise to change root password  in 8  mins for exam
 
 
 To get to single user mode  at GRUB menu add to kernel line
