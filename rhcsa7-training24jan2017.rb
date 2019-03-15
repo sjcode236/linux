@@ -33,7 +33,7 @@ yum -y groupinstall "X Window System" "GNOME"
 systemctl set-default  graphical.target
 
 select option poweron to firmware/BIOS  to goto  BIOS  on startup
-
+//
 ---OS installation notes ----
 disale Kdump for practise
 security policy -> "change  content"  to not select  policy
