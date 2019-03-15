@@ -118,7 +118,7 @@ systemctl emergency   or  systemctl isolate emergency.target
  situations when the system is unable to enter rescue mode. In emergency mode, 
  the system mounts the root file system only for reading, does not attempt to mount any 
  other local file systems, does not activate network interfaces
-========================================
+'========================================
 CHAPTER 36. BASIC SYSTEM RECOVERY
 https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/installation_guide/ap-rescuemode
 
@@ -208,7 +208,7 @@ baseurl=ftp://192.168.1.1/var/dir32/
 parctise to make repo  in 3 mins
 *************************************
 
-`***How to fix duplicate packages in yum ******************************
+***How to fix duplicate packages in yum ******************************
 verify yum-utils  installed or install it 
 yum list installed  yum-utils*
 yum-complete-transaction
@@ -223,7 +223,7 @@ package-cleanup --problems
 Loaded plugins: fastestmirror
 No Problems Found
 
-`***ADDING, ENABLING, AND DISABLING A YUM REPOSITORY ********************
+***ADDING, ENABLING, AND DISABLING A YUM REPOSITORY ********************
 ===To add a .repo repository to your system and enable it, run the following command as root:
 yum install -y yum-utils  ==> yum-utils provide  yum-config-manager:
 yum-config-manager --add-repo repository_url
@@ -257,7 +257,7 @@ yum downgrade -y dhcp-common dhcp-libs dhclient
  subscription-manager repos --list
  subscription-manager repos --enable=rhel-6-server-optional-rpms
  subscription-manager repos --disable=rhel-6-server-optional-rpms
-===Disabling the Subscription-Manager Repository:-
+'===Disabling the Subscription-Manager Repository:-
 	The default redhat.repo repository can be disabled by editing the Subscription-Manager configuration and setting the manage_repos value to zero 
 # subscription-manager config --rhsm.manage_repos=0
 -----------------------------------------------------------------------------------------
