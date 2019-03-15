@@ -778,6 +778,94 @@ systemctl get-default
 systemctl set-default multiuser.target
 systemctl isolate  multiuser.target
 
+===Systemd Unit Files =============================
+===Systemd Unit Files Locations
+/usr/lib/systemd/system/
+	Systemd unit files distributed with installed RPM packages.
+/run/systemd/system/
+	Systemd unit files created at run time. This directory takes precedence over the directory with installed service unit files.
+/etc/systemd/system/
+	Systemd unit files created by systemctl enable as well as unit files added for extending a service. This directory takes precedence over the directory with runtime unit files.
+	the /etc/systemd/system/ directory is reserved for unit files created or customized by the system administrator.
+===/usr/lib/systemd/system/postifix.service
+[Unit]
+Description=Postfix Mail Transport Agent
+After=syslog.target network.target
+Conflicts=sendmail.service exim.service
+
+[Service]
+Type=forking
+PIDFile=/var/spool/postfix/pid/master.pid
+EnvironmentFile=-/etc/sysconfig/network
+ExecStartPre=-/usr/libexec/postfix/aliasesdb
+ExecStartPre=-/usr/libexec/postfix/chroot-update
+ExecStart=/usr/sbin/postfix start
+ExecReload=/usr/sbin/postfix reload
+ExecStop=/usr/sbin/postfix stop
+
+[Install]
+WantedBy=multi-user.target
+
+====Creating Custom Unit Files   
+
+2.Create a unit file in the /etc/systemd/system/
+touch /etc/systemd/system/name.service
+chmod 664 /etc/systemd/system/name.service
+
+3.Open the name.service file created in the previous step, and add the service configuration options. 
+[Unit]
+Description=service_description
+After=network.target
+
+[Service]
+ExecStart=path_to_executable
+Type=forking
+PIDFile=path_to_pidfile
+
+[Install]
+WantedBy=default.target
+
+4.Notify systemd that a new name.service file exists by executing the following command as root:
+	systemctl daemon-reload
+	systemctl start name.service
+
+=======Starting and Stopping Services
+systemctl start application.service
+systemctl start application
+systemctl stop application.service
+systemctl restart application.service
+systemctl reload application.service
+systemctl reload-or-restart application.service
+systemctl enable application.service
+	This will create a symbolic link from the system's ' copy of the service file (usually in /lib/systemd/system or /etc/systemd/system) into the location on disk where systemd looks for autostart files (usually /etc/systemd/system/some_target.target.wants.
+systemctl disable application.service
+systemctl status application.service
+systemctl is-active application.service
+systemctl is-enabled application.service
+systemctl is-failed application.service
+systemctl list-units
+	This will show you a list of all of the units that systemd currently has active on the system.
+systemctl list-units --all
+	This will show any unit that systemd loaded or attempted to load, regardless of its current state 
+systemctl list-units --all --state=inactive
+systemctl list-units --type=service
+systemctl list-unit-files  
+systemctl cat atd.service
+[Unit]
+Description=ATD daemon
+[Service]
+Type=forking
+ExecStart=/usr/bin/atd
+[Install]
+WantedBy=multi-user.target
+
+systemctl list-dependencies sshd.service
+systemctl show sshd.service
+	To see the low-level properties of a unit, you can use the show command. This will display a list of properties that are set for the specified unit using a key=value
+rm -r /etc/systemd/system/nginx.service.d
+sudo rm /etc/systemd/system/nginx.service
+https://www.digitalocean.com/community/tutorials/how-to-use-systemctl-to-manage-systemd-services-and-units
+
 
 ===system logging   ============================================
 rsyslog
