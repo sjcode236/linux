@@ -4,10 +4,11 @@ rhcsa training
 http://blog.fpmurphy.com/
 
 www.certdepot.net/
-
+'===
 https://www.centos.org/download/
 Minimal ISO's are here if anyone needs:
 ftp://ftp.osuosl.org/pub/centos/7/isos/x86_64/
+
 
 ls -alZ
 
@@ -33,7 +34,7 @@ yum -y groupinstall "X Window System" "GNOME"
 systemctl set-default  graphical.target
 
 select option poweron to firmware/BIOS  to goto  BIOS  on startup
-//
+
 ---OS installation notes ----
 disale Kdump for practise
 security policy -> "change  content"  to not select  policy
