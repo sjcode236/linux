@@ -54,6 +54,22 @@ If you want to move the files from /images, with rsync, you can pass the option 
 
 find ../apps  -size +40960 -exec ls -l {} \; |sort -r -k 5
 
+=====find with excluding directories=============================
+find . -path ./dir4 -prune -o -print
+find . -type d \( ! -name dir4 \) -print
+find . -type f -not -path "./dir1/*" -not -path "./dir4/*" -exec cp '{}' /tmp \;
+find / -iname mercurial*  -not -path "*/adata/*" -not -path "*/awork/*"
+find -name "*.js" -not -path "./directory/*"
+find -name "*.js" -not -path "*/omitme/*
+
+find . -path ./src/emacs -prune -o -print
+find . -path ./misc -prune -o -name '*.txt' -print
+find . -type d \( -path dir1 -o -path dir2 -o -path dir3 \) -prune -o -print 
+
+find build -not \( -path build/external -prune \) -not \( -path build/blog -prune \) -name \*.js
+
+
+
 ----- awk , cut , sed ,grep   ---------------------------------- 
 
 More  than one command in a line is possible with  “;”
