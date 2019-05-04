@@ -90,4 +90,17 @@ done
 logical operators
 http://tldp.org/LDP/abs/html/comparison-ops.html  
 
+====integer comparison
+-eq
+is equal to
+if [ "$a" -eq "$b" ]
 
+-ne
+is not equal to
+if [ "$a" -ne "$b" ]
+
+-gt
+is greater than
+if [ "$a" -gt "$b" ]
+ 
+ ======================================
