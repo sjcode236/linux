@@ -114,5 +114,13 @@ if [[ "$a" < "$b" ]]
 if [ "$a" \< "$b" ]
 Note that the "<" needs to be escaped within a [ ] construct.
 
-
+if
+ then
+ elseif
+  esle
+ fi 
+  
+  
+  case 
+ 
 ======================================
