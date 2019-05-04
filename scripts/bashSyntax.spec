@@ -121,6 +121,12 @@ if
  fi 
   
   
-  case 
+case $ACTION
+in  
+ valu1)
+ Valu2)
+  *)
+esac 
+
  
 ======================================
