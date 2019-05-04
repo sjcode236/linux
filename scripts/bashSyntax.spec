@@ -102,5 +102,17 @@ if [ "$a" -ne "$b" ]
 -gt
 is greater than
 if [ "$a" -gt "$b" ]
+
+**** The == comparison operator behaves differently within a double-brackets test than within single brackets.
+[[ $a == z* ]]   # True if $a starts with an "z" (pattern matching).
+[[ $a == "z*" ]] # True if $a is equal to z* (literal matching).
+
+[ $a == z* ]     # File globbing and word splitting take place.
+[ "$a" == "z*" ] # True if $a is equal to z* (literal matching).
  
- ======================================
+if [[ "$a" < "$b" ]]
+if [ "$a" \< "$b" ]
+Note that the "<" needs to be escaped within a [ ] construct.
+
+
+======================================
