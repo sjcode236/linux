@@ -87,7 +87,7 @@ done
 
 
 ====================================================
-logical operators
+====logical operators
 http://tldp.org/LDP/abs/html/comparison-ops.html  
 
 ====integer comparison
