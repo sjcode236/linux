@@ -59,5 +59,35 @@ echo ""
 https://linuxhint.com/bash_loop_list_strings/   
 https://stackabuse.com/array-loops-in-bash/
 
+====================================================
+======loops 
+count=0
+while [ count -lt 10 ] ; do ; echo $count ; (( count++))  ; done 
+while [ count -le 10 ] ; do ; echo $count ; count=$(($count+1)) ; done 
+count=0  
+while ((count <= 10)) 
+do ; echo $count ; count=$(($count+1)) ; done 
+count=0  
+until [ $count -gt 10 ]  ; do ;   echo "$count"
+    count=$(( $count + 1 ))
+done  
 
-======================================
+for (( n=1; n<=10; n++ ))  
+do  
+    echo "$n"
+done 
+
+users=(John Harry Jake Scott Philis)  
+for u in "${users[@]}"  
+do  
+    echo "$u is a registered user"
+done  
+
+
+
+
+====================================================
+logical operators
+http://tldp.org/LDP/abs/html/comparison-ops.html  
+
+
