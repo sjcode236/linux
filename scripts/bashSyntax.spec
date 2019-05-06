@@ -12,7 +12,7 @@ $ echo -e " ${myarr[0]} , ${myarr[1]} , ${myarr[2]} , ${myarr[3]} "
 OR
 myarr=('item1' 'item2' 'item3')
 
-====Array examples 
+====Array examples  =====================================================
 array=( one two three )
 More examples:
 files=( "/etc/passwd" "/etc/group" "/etc/hosts" )
