@@ -1254,6 +1254,9 @@ vi /etc/fstab
 192.168.0.110:/nfsdemo  /nfsmnt  nfs   _netdev   0  0
 mount /nfsmnt
 
+mount  |grep nfs 
+nfsstat -m
+
 ===swap ======================================
 free
 free -h
