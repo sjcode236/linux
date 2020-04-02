@@ -3,7 +3,8 @@
 
 
 ====Reboot server ===================================
-hostname --fqdn
+hostname --fqdn  
+hostname -f
 echo OPSW_REBOOT 
 #(or use  echo OPSW_FORCE_REBOOT )
 echo  "after boot"
