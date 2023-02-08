@@ -18,4 +18,13 @@ to get fully qualified (fqn) name of host
 hsotname -f  
 
 🏀========================================   
+stat -> display file or file system status    
+stat /tmp 
+
+🏀========================================
+ps -fu  ->  processes by user    
+
+🏀========================================
+
+
 
