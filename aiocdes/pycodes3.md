@@ -19,7 +19,7 @@
 
 Python code that finds the total size of all files and folders in the Linux path /w3data/w3shops, while also avoiding checking symbolic links:   
 
-```python:
+```python
 import os
 
 def get_size(path):
